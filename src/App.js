@@ -18,9 +18,9 @@ class App extends Component {
             url: 'https://api.themoviedb.org/3/movie/76341?api_key=3963cd7dc78abf65997e8ce1d3f9b148',
             dataType: 'json',
             cache: false,
-            success: function(data) {
-                this.setState({ movies: data.data }, function() {
-                    console.log(data);
+            success: function(movies) {
+                this.setState({ movies: movies.movies }, function() {
+                    console.log(movies);
                 })
             }.bind(this),
             error: function(xhr, status, err) {

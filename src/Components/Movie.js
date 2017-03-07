@@ -5,7 +5,7 @@ class Movie extends Component {
     render() {
         return (
             <li className="Movie">
-                <strong>{this.props.data.title}:</strong>
+                <strong>{this.props.movie.title}:</strong>
             </li>
         );
     }
