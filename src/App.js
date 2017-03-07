@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import uuid from 'uuid';
 import $ from 'jquery';
-import Projects from './Components/Projects';
-import AddProject from './Components/AddProject';
-import Todos from './Components/Todos';
+import Movies from './Components/Movies';
 import './App.css';
 
 class App extends Component {
@@ -11,19 +8,19 @@ class App extends Component {
     constructor(){
         super();
         this.state = {
-            projects: [],
-            todos: []
+            movies: []
         }
     }
 
-    getTodos() {
+    getMovies() {
         $.ajax({
-            url: 'https://jsonplaceholder.typicode.com/todos',
+            // url: 'https://jsonplaceholder.typicode.com/todos',
+            url: 'https://api.themoviedb.org/3/movie/76341?api_key=3963cd7dc78abf65997e8ce1d3f9b148',
             dataType: 'json',
             cache: false,
             success: function(data) {
-                this.setState({ todos: data }, function() {
-                    console.log(this.state);
+                this.setState({ movies: data.data }, function() {
+                    console.log(data);
                 })
             }.bind(this),
             error: function(xhr, status, err) {
@@ -32,58 +29,19 @@ class App extends Component {
         })
     }
 
-    getProjects() {
-        this.setState({ projects: [
-            {
-                id: uuid.v4(),
-                title: 'Business Website',
-                category: 'Web Design'
-            },
-            {
-                id: uuid.v4(),
-                title: 'Social App',
-                category: 'Mobile Development'
-            },
-            {
-                id: uuid.v4(),
-                title: 'Ecommerce Shopping Cart',
-                category: 'Web Development'
-            }
-        ]});
-    }
-
     componentWillMount(){
-        this.getProjects();
-        this.getTodos();
+        this.getMovies();
     }
-
 
     componentDidMount() {
-        this.getTodos();
-    }
-
-    handleAddProject(project) {
-        // console.log(project);
-        let projects = this.state.projects;
-        projects.push(project);
-        this.setState({ projects:projects });
-
-    }
-
-    handleDeleteProject(id) {
-        let projects = this.state.projects;
-        let index = projects.findIndex( x => x.id === id );
-        projects.splice(index, 1);
-        this.setState({ projects:projects });
+        this.getMovies();
     }
 
     render() {
         return (
             <div className="App">
-                <AddProject addProject={this.handleAddProject.bind(this)} />
-                <Projects projects={this.state.projects} onDelete={this.handleDeleteProject.bind(this)} />
                 <hr/>
-                <Todos todos={this.state.todos} />
+                <Movies movies={this.state.movies} />
             </div>
         );
     }
