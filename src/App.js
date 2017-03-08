@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import Movies from './Components/Movies';
-import './App.css';
+import './App.scss';
 
 class App extends Component {
 

@@ -3,7 +3,6 @@ body,
 html {
     font-family: Arial;
     margin: 0;
-    /*height: 100%;*/
 }
 
 img {
@@ -28,7 +27,6 @@ img {
 @media screen and (min-width: 800px) {
     .Movie {
         flex-direction: row;
-        /*width: 50%;*/
     }
 
     .col-50 {
