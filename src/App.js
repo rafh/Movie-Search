@@ -5,8 +5,8 @@ import './App.css';
 
 class App extends Component {
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             movies: []
         }
@@ -14,13 +14,12 @@ class App extends Component {
 
     getMovies() {
         $.ajax({
-            // url: 'https://jsonplaceholder.typicode.com/todos',
-            url: 'https://api.themoviedb.org/3/movie/76341?api_key=3963cd7dc78abf65997e8ce1d3f9b148',
+            url: 'https://api.themoviedb.org/3/movie/155?api_key=3963cd7dc78abf65997e8ce1d3f9b148',
             dataType: 'json',
             cache: false,
-            success: function(movies) {
-                this.setState({ movies: movies.movies }, function() {
-                    console.log(movies);
+            success: function(data) {
+                this.setState({ movies: [data] }, function() {
+                    console.log(data);
                 })
             }.bind(this),
             error: function(xhr, status, err) {
@@ -40,7 +39,6 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <hr/>
                 <Movies movies={this.state.movies} />
             </div>
         );

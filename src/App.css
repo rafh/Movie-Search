@@ -1,0 +1,50 @@
+
+body,
+html {
+    font-family: Arial;
+    margin: 0;
+    /*height: 100%;*/
+}
+
+img {
+    max-width: 100%;
+}
+
+.col-50 {
+    width: 100%;
+}
+
+.Movie {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    max-width: 100%;
+    overflow: hidden;
+    color: white;
+    min-height: 100vh;
+}
+
+
+@media screen and (min-width: 800px) {
+    .Movie {
+        flex-direction: row;
+        /*width: 50%;*/
+    }
+
+    .col-50 {
+        width: 50%;
+    }
+}
+
+.Movie__content {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.77);
+    padding: 20px;
+}
+
+.Movie__image {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}

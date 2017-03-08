@@ -7,15 +7,14 @@ class Movies extends Component {
         let movies;
         if( this.props.movies ) {
             movies = this.props.movies.map( movie => {
-                // console.log(todo);
+                // console.log(movies);
                 return (
-                    <Movie key={movie.title} movie={ movie } />
+                    <Movie key={movie.id} movie={ movie }  />
                 );
             });
         }
         return (
-            <div className="Movie">
-                <h3></h3>
+            <div className="Movies" >
                 {movies}
             </div>
         );
