@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import Movies from './Components/Movies';
-import './App.scss';
+import './styles/App.scss';
 
 class App extends Component {
 
@@ -14,9 +14,9 @@ class App extends Component {
 
     getMovies() {
         $.ajax({
-            url: 'https://api.themoviedb.org/3/movie/155?api_key=3963cd7dc78abf65997e8ce1d3f9b148',
+            url: 'https://api.themoviedb.org/3/movie/652?api_key=3963cd7dc78abf65997e8ce1d3f9b148',
             dataType: 'json',
-            cache: false,
+            cache: true,
             success: function(data) {
                 this.setState({ movies: [data] }, function() {
                     console.log(data);

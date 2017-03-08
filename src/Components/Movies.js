@@ -14,7 +14,7 @@ class Movies extends Component {
             });
         }
         return (
-            <div className="Movies" >
+            <div className="Movies">
                 {movies}
             </div>
         );
