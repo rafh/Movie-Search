@@ -13,8 +13,11 @@ class App extends Component {
     }
 
     getMovies() {
+        var d = new Date();
+        var minutes = d.getMinutes();
+        var srch = minutes.toString();
         $.ajax({
-            url: 'https://api.themoviedb.org/3/movie/652?api_key=3963cd7dc78abf65997e8ce1d3f9b148',
+            url: 'https://api.themoviedb.org/3/movie/'+ minutes +'?api_key=3963cd7dc78abf65997e8ce1d3f9b148',
             dataType: 'json',
             cache: true,
             success: function(data) {
